@@ -1,0 +1,37 @@
+def add(n1, n2):
+    return n1 + n2
+def subtract(n1, n2):
+    return n1 - n2
+def multiply(n1, n2):
+    return n1 * n2
+def divide(n1, n2):
+    return n1 / n2
+
+operations = {
+    "+": add,
+    "-": subtract,
+    "*": multiply,
+    "/": divide
+}
+
+def calculator():
+    continuous_calculations = True
+    first_number = float(input("What's the first number? "))
+    while continuous_calculations:
+        sign = input("+\n-\n*\n/\nPick an operation: ")
+        second_number = float(input("What's the next number? "))
+
+        result = operations[sign](first_number, second_number)
+        print(f"{first_number} {sign} {second_number} = " + str(operations[sign](first_number, second_number)))
+
+        should_continue = input(
+            f"Type 'y' to continue calculating with {result}, or type 'n' to start a new calculation: ")
+        if should_continue == 'n':
+            continuous_calculations = False
+            result = 0
+            print("\n" * 20)
+            calculator()
+        else:
+            first_number = result
+
+calculator()
