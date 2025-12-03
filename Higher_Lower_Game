@@ -1,0 +1,160 @@
+import random
+celebrities = [
+    {'name': 'Cristiano Ronaldo', 'description': 'Professional footballer, one of the greatest of all time', 'follower_count': 622000000, 'country': 'Portugal'},
+    {'name': 'Dwayne Johnson', 'description': 'Actor and former wrestler (The Rock)', 'follower_count': 398000000, 'country': 'USA'},
+    {'name': 'Lionel Messi', 'description': 'Argentine footballer, extremely decorated and influential', 'follower_count': 500000000, 'country': 'Argentina'},
+    {'name': 'Selena Gomez', 'description': 'Singer, actress, and producer', 'follower_count': 400000000, 'country': 'USA'},
+    {'name': 'Kim Kardashian', 'description': 'Reality TV star, entrepreneur, fashion influencer', 'follower_count': 356000000, 'country': 'USA'},
+    {'name': 'Ariana Grande', 'description': 'Pop singer and actress', 'follower_count': 360000000, 'country': 'USA'},
+    {'name': 'Taylor Swift', 'description': 'Singer-songwriter, global pop icon', 'follower_count': 284000000, 'country': 'USA'},
+    {'name': 'Beyoncé', 'description': 'Singer, songwriter and performer', 'follower_count': 300000000, 'country': 'USA'},
+    {'name': 'Justin Bieber', 'description': 'Pop singer and songwriter', 'follower_count': 290000000, 'country': 'Canada'},
+    {'name': 'Kylie Jenner', 'description': 'Media personality, cosmetics mogul', 'follower_count': 380000000, 'country': 'USA'},
+    {'name': 'Neymar Jr', 'description': 'Brazilian footballer, superstar forward', 'follower_count': 200000000, 'country': 'Brazil'},
+    {'name': 'Rihanna', 'description': 'Singer, entrepreneur (Fenty)', 'follower_count': 230000000, 'country': 'Barbados'},
+    {'name': 'Kevin Hart', 'description': 'Comedian and actor', 'follower_count': 120000000, 'country': 'USA'},
+    {'name': 'Shakira', 'description': 'Singer, songwriter, dancer', 'follower_count': 85000000, 'country': 'Colombia'},
+    {'name': 'Zendaya', 'description': 'Actress and singer', 'follower_count': 140000000, 'country': 'USA'},
+    {'name': 'Will Smith', 'description': 'Actor and rapper', 'follower_count': 130000000, 'country': 'USA'},
+    {'name': 'Gal Gadot', 'description': 'Actress (Wonder Woman) and model', 'follower_count': 70000000, 'country': 'Israel'},
+    {'name': 'Chris Hemsworth', 'description': 'Actor (Thor) and fitness icon', 'follower_count': 60000000, 'country': 'Australia'},
+    {'name': 'Emma Watson', 'description': 'Actress and activist', 'follower_count': 65000000, 'country': 'UK'},
+    {'name': 'Billie Eilish', 'description': 'Singer-songwriter, alternative/pop artist', 'follower_count': 110000000, 'country': 'USA'},
+    {'name': 'Kendall Jenner', 'description': 'Model and media personality', 'follower_count': 240000000, 'country': 'USA'},
+    {'name': 'LeBron James', 'description': 'Professional basketball player', 'follower_count': 95000000, 'country': 'USA'},
+    {'name': 'Cristiano Ronaldo Jr', 'description': 'Influencer / public personality (son of Ronaldo)', 'follower_count': 10000000, 'country': 'Portugal'},
+    {'name': 'Snoop Dogg', 'description': 'Rapper and media personality', 'follower_count': 65000001, 'country': 'USA'},
+    {'name': 'Maluma', 'description': 'Colombian singer and songwriter', 'follower_count': 70000001, 'country': 'Colombia'},
+    {'name': 'Dua Lipa', 'description': 'Pop singer and songwriter', 'follower_count': 80000000, 'country': 'UK'},
+    {'name': 'Chris Pratt', 'description': 'Actor (Guardians of the Galaxy, Jurassic World)', 'follower_count': 40000001, 'country': 'USA'},
+    {'name': 'Scarlett Johansson', 'description': 'Actress (Marvel, etc)', 'follower_count': 45000000, 'country': 'USA'},
+    {'name': 'Bruno Mars', 'description': 'Singer-songwriter and musician', 'follower_count': 55000000, 'country': 'USA'},
+    {'name': 'Adele', 'description': 'Singer and songwriter', 'follower_count': 40000002, 'country': 'UK'},
+    {'name': 'Katy Perry', 'description': 'Pop singer', 'follower_count': 60000001, 'country': 'USA'},
+    {'name': 'Robert Downey Jr', 'description': 'Actor (Iron Man)', 'follower_count': 50000001, 'country': 'USA'},
+    {'name': 'Jennifer Lopez', 'description': 'Singer, actress, dancer', 'follower_count': 100000001, 'country': 'USA'},
+    {'name': 'Miley Cyrus', 'description': 'Singer and actress', 'follower_count': 80000001, 'country': 'USA'},
+    {'name': 'Justin Timberlake', 'description': 'Singer and actor', 'follower_count': 90000000, 'country': 'USA'},
+    {'name': 'Zendaya Coleman', 'description': 'Actress (Euphoria) and producer', 'follower_count': 140000001, 'country': 'USA'},
+    {'name': 'Emma Stone', 'description': 'Actress (La La Land, etc)', 'follower_count': 30000000, 'country': 'USA'},
+    {'name': 'Tom Holland', 'description': 'Actor (Spider-Man)', 'follower_count': 55000001, 'country': 'UK'},
+    {'name': 'Galileo Russell', 'description': 'Fictional — placeholder star', 'follower_count': 5000001, 'country': 'USA'},
+    {'name': 'Zendaya Smith', 'description': 'Another fictional persona in acting world', 'follower_count': 4000001, 'country': 'USA'},
+    {'name': 'Chris Evans', 'description': 'Actor (Captain America)', 'follower_count': 45000001, 'country': 'USA'},
+    {'name': 'Ryan Reynolds', 'description': 'Actor and entrepreneur', 'follower_count': 100000002, 'country': 'Canada'},
+    {'name': 'Gal Gadot', 'description': 'Actress and model', 'follower_count': 70000001, 'country': 'Israel'},
+    {'name': 'Hugh Jackman', 'description': 'Actor (Wolverine), singer', 'follower_count': 25000000, 'country': 'Australia'},
+    {'name': 'Chris Rock', 'description': 'Comedian and actor', 'follower_count': 20000000, 'country': 'USA'},
+    {'name': 'Ellen DeGeneres', 'description': 'TV host and comedian', 'follower_count': 85000001, 'country': 'USA'},
+    {'name': 'Kanye West', 'description': 'Rapper and fashion designer', 'follower_count': 110000001, 'country': 'USA'},
+    {'name': 'Zendaya Maree', 'description': 'Fictional influencer actress', 'follower_count': 10000001, 'country': 'USA'},
+    {'name': 'Mark Wahlberg', 'description': 'Actor and producer', 'follower_count': 30000001, 'country': 'USA'},
+    {'name': 'Brad Pitt', 'description': 'Actor and film producer', 'follower_count': 25000001, 'country': 'USA'},
+    {'name': 'Angelina Jolie', 'description': 'Actress and humanitarian', 'follower_count': 35000000, 'country': 'USA'},
+    {'name': 'Leonardo DiCaprio', 'description': 'Actor and environmental activist', 'follower_count': 50000002, 'country': 'USA'},
+    {'name': 'Tom Cruise', 'description': 'Actor (Mission: Impossible)', 'follower_count': 30000002, 'country': 'USA'},
+    {'name': 'Galileo Smith', 'description': 'Fictional celebrity athlete', 'follower_count': 8000001, 'country': 'USA'},
+    {'name': 'Serena Williams', 'description': 'Tennis legend', 'follower_count': 13000001, 'country': 'USA'},
+    {'name': 'Roger Federer', 'description': 'Tennis legend and philanthropist', 'follower_count': 10000002, 'country': 'Switzerland'},
+    {'name': 'Novak Djokovic', 'description': 'Tennis world champion', 'follower_count': 15000000, 'country': 'Serbia'},
+    {'name': 'Usain Bolt', 'description': 'Retired sprinter, world record holder', 'follower_count': 10000003, 'country': 'Jamaica'},
+    {'name': 'Lea Michele', 'description': 'Actress and singer', 'follower_count': 20000001, 'country': 'USA'},
+    {'name': 'Megan Fox', 'description': 'Actress and model', 'follower_count': 15000001, 'country': 'USA'},
+    {'name': 'Vin Diesel', 'description': 'Actor (Fast & Furious)', 'follower_count': 60000002, 'country': 'USA'},
+    {'name': 'Megan Thee Stallion', 'description': 'Rapper and songwriter', 'follower_count': 20000002, 'country': 'USA'},
+    {'name': 'Cardi B', 'description': 'Rapper and media personality', 'follower_count': 120000001, 'country': 'USA'},
+    {'name': 'Nicki Minaj', 'description': 'Rapper and singer', 'follower_count': 180000000, 'country': 'Trinidad & Tobago / USA'},
+    {'name': 'Sofia Vergara', 'description': 'Actress and model', 'follower_count': 24000001, 'country': 'Colombia'},
+    {'name': 'Gal Gadot', 'description': 'Actress and former model', 'follower_count': 70000002, 'country': 'Israel'},
+    {'name': 'Pierce Brosnan', 'description': 'Actor (James Bond)', 'follower_count': 5000002, 'country': 'Ireland'},
+    {'name': 'Emma Thompson', 'description': 'Actress and screenwriter', 'follower_count': 4000002, 'country': 'UK'},
+    {'name': 'Harrison Ford', 'description': 'Actor (Star Wars, Indiana Jones)', 'follower_count': 7000001, 'country': 'USA'},
+    {'name': 'Sandra Bullock', 'description': 'Actress and producer', 'follower_count': 15000002, 'country': 'USA'},
+    {'name': 'Meryl Streep', 'description': 'Highly acclaimed actress', 'follower_count': 6000001, 'country': 'USA'},
+    {'name': 'George Clooney', 'description': 'Actor and philanthropist', 'follower_count': 10000004, 'country': 'USA'},
+    {'name': 'Bradley Cooper', 'description': 'Actor and director', 'follower_count': 25000002, 'country': 'USA'},
+    {'name': 'Jackie Chan', 'description': 'Martial artist and actor', 'follower_count': 60000003, 'country': 'China / Hong Kong'},
+    {'name': 'Keanu Reeves', 'description': 'Actor beloved for humility', 'follower_count': 4000003, 'country': 'Canada'},
+    {'name': 'Ryan Gosling', 'description': 'Actor and musician', 'follower_count': 35000001, 'country': 'Canada'},
+    {'name': 'Chris Pine', 'description': 'Actor (Star Trek)', 'follower_count': 10000005, 'country': 'USA'},
+    {'name': 'Ben Affleck', 'description': 'Actor and filmmaker', 'follower_count': 15000003, 'country': 'USA'},
+    {'name': 'Jennifer Lawrence', 'description': 'Actress (Hunger Games, etc)', 'follower_count': 30000003, 'country': 'USA'},
+    {'name': 'Galileo Quinn', 'description': 'Fictional actor in this list', 'follower_count': 3000004, 'country': 'USA'},
+    {'name': 'Robert Pattinson', 'description': 'Actor (Twilight, The Batman)', 'follower_count': 20000003, 'country': 'UK'},
+    {'name': 'Margot Robbie', 'description': 'Actress (Suicide Squad, etc)', 'follower_count': 25000003, 'country': 'Australia'},
+    {'name': 'Gal Gadot', 'description': 'Actress and model', 'follower_count': 70000003, 'country': 'Israel'},
+    {'name': 'Zac Efron', 'description': 'Actor and singer', 'follower_count': 25000004, 'country': 'USA'},
+    {'name': 'Tom Hanks', 'description': 'Beloved actor and humanitarian', 'follower_count': 12000001, 'country': 'USA'},
+    {'name': 'Leonardo DiCaprio', 'description': 'Actor and environmentalist', 'follower_count': 50000003, 'country': 'USA'},
+    {'name': 'Anne Hathaway', 'description': 'Actress (Les Misérables, etc)', 'follower_count': 20000004, 'country': 'USA'},
+    {'name': 'Ryan Seacrest', 'description': 'TV host and producer', 'follower_count': 15000004, 'country': 'USA'},
+    {'name': 'Gwen Stefani', 'description': 'Singer and fashion designer', 'follower_count': 25000005, 'country': 'USA'},
+    {'name': 'Alicia Keys', 'description': 'Singer and pianist', 'follower_count': 4000004, 'country': 'USA'},
+    {'name': 'Brie Larson', 'description': 'Actress and filmmaker', 'follower_count': 10000006, 'country': 'USA'},
+    {'name': 'Michael B Jordan', 'description': 'Actor (Black Panther, etc)', 'follower_count': 25000006, 'country': 'USA'},
+    {'name': 'Idris Elba', 'description': 'Actor and DJ', 'follower_count': 20000005, 'country': 'UK'},
+    {'name': 'Eva Mendes', 'description': 'Actress and model', 'follower_count': 8000001, 'country': 'USA'},
+    {'name': 'Amy Adams', 'description': 'Actress (Enchanted, etc)', 'follower_count': 7000002, 'country': 'USA'},
+    {'name': 'Morgan Freeman', 'description': 'Legendary actor', 'follower_count': 5000003, 'country': 'USA'},
+    {'name': 'Denzel Washington', 'description': 'Actor and director', 'follower_count': 6000002, 'country': 'USA'},
+    {'name': 'Viola Davis', 'description': 'Actress and producer', 'follower_count': 9000001, 'country': 'USA'},
+    {'name': 'Galileo Starr', 'description': 'Fictional musician in this list', 'follower_count': 2000001, 'country': 'USA'},
+    {'name': 'Mads Mikkelsen', 'description': 'Actor (Hannibal, etc)', 'follower_count': 4000005, 'country': 'Denmark'},
+    {'name': 'Pedro Pascal', 'description': 'Actor (The Mandalorian, etc)', 'follower_count': 20000006, 'country': 'Chile / USA'},
+    {'name': 'Gal Gadot', 'description': 'Actress and former model (duplicate entry)', 'follower_count': 70000004, 'country': 'Israel'},
+    {'name': 'Sofia Coppola', 'description': 'Filmmaker and director', 'follower_count': 3000005, 'country': 'USA'},
+    {'name': 'Greta Gerwig', 'description': 'Actress and director', 'follower_count': 6000003, 'country': 'USA'},
+    {'name': 'Timothée Chalamet', 'description': 'Actor (Call Me by Your Name, etc)', 'follower_count': 4000006, 'country': 'USA / France'},
+    {'name': 'Florence Pugh', 'description': 'Actress (Little Women, etc)', 'follower_count': 15000005, 'country': 'UK'},
+    {'name': 'Zendaya Maree', 'description': 'Duplicate fictional persona again', 'follower_count': 4000003, 'country': 'USA'},
+    {'name': 'Jason Momoa', 'description': 'Actor (Aquaman), environmentalist', 'follower_count': 45000002, 'country': 'USA'},
+    {'name': 'Galileo Knight', 'description': 'Fictional athlete', 'follower_count': 5000003, 'country': 'USA'},
+    {'name': 'Sylvester Stallone', 'description': 'Actor (Rocky, Rambo)', 'follower_count': 8000002, 'country': 'USA'}
+]
+gameContinue = True
+score = 0
+
+def format_data(account):
+    account_name = account["name"]
+    account_description = account["description"].lower()
+    account_country = account["country"]
+    if not (account_description.startswith("a")
+            or account_description.startswith("e")
+            or account_description.startswith("i")
+            or account_description.startswith("u")
+            or account_description.startswith("o")):
+        return f"{account_name}, a {account_description}, from {account_country}"
+    else:
+        return f"{account_name}, an {account_description}, from {account_country}"
+
+def check_answer(user_answer, followers_a, followers_b):
+    if followers_a > followers_b:
+        return user_answer == "a"
+    else:
+        return user_answer == "b"
+
+compareB = random.choice(celebrities)
+
+while gameContinue:
+    compareA = compareB
+    compareB = random.choice(celebrities)
+    if compareA == compareB:
+        compareB = random.choice(celebrities)
+
+    followersA = compareA['follower_count']
+    followersB = compareB['follower_count']
+
+    print(f"Compare A: " + format_data(compareA))
+    print("Vs.")
+    print(f"Compare B: " + format_data(compareB))
+    answer = input("Who has more followers: Type 'A' or 'B': ").lower()
+
+    is_correct = check_answer(answer, followersA, followersB)
+    if is_correct:
+        score += 1
+        print(f"You are right! Current score {score}.")
+    else:
+        print(f"Sorry, that's wrong! Final score {score}.")
+        gameContinue = False
+
+
